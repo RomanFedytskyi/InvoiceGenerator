@@ -10,6 +10,8 @@ import type { InvoiceData } from '../utils/InvoiceTypes';
 import { pdfStyles, type StyleType } from '../utils/InvoicePDFStyles';
 import { Button } from '@mantine/core';
 import { IconDownload } from '@tabler/icons-react';
+import { format } from 'date-fns';
+import { formatMoney } from '../utils/formatting';
 
 export interface InvoiceDocumentProps {
   data: InvoiceData;
@@ -28,7 +30,10 @@ export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({ data, styleTyp
           {data.companyName} — INVOICE #{data.invoiceNumber}
         </Text>
         <Text>
-          Issued: {data.issuedDate} | Due: {data.dueDate}
+          <Text>
+            Issued: {format(new Date(data.issuedDate), 'MM/dd/yyyy')} | Due: {format(new Date(data.dueDate), 'MM/dd/yyyy')}
+          </Text>
+
         </Text>
 
         <View style={styles.section}>
@@ -61,10 +66,10 @@ export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({ data, styleTyp
                 <Text style={styles.cell}>{item.description || '—'}</Text>
                 <Text style={[styles.cell, styles.rightCell]}>{item.qty ?? 0}</Text>
                 <Text style={[styles.cell, styles.rightCell]}>
-                  ${(item.price ?? 0).toFixed(2)}
+                  {formatMoney(item.price)}
                 </Text>
                 <Text style={[styles.cell, styles.rightCell]}>
-                  ${((item.qty ?? 0) * (item.price ?? 0)).toFixed(2)}
+                  {formatMoney((item.qty ?? 0) * (item.price ?? 0))}
                 </Text>
               </View>
             ))
@@ -78,7 +83,7 @@ export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({ data, styleTyp
           )}
         </View>
 
-        <Text style={styles.totalSection}>Total: ${total.toFixed(2)}</Text>
+        <Text style={styles.totalSection}>Total: {formatMoney(total)}</Text>
 
         <View style={styles.paymentDetails}>
           <Text style={styles.subHeader}>Payment Instructions (Wire Transfer)</Text>

@@ -1,3 +1,9 @@
 node_modules/
 invoice-config.json
 .DS_Store
+dist/
+build/
+.env
+test-results/
+coverage/
+allure-results/

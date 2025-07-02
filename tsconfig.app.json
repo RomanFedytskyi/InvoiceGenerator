@@ -23,5 +23,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "src/utils/invoiceConfig.js", "invoice-config.js"]
+  "include": ["src", "src/utils/invoiceConfig.js", "invoice-config.js", "playwright.config.ts"]
 }

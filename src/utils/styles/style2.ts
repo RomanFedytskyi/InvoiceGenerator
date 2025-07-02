@@ -16,6 +16,13 @@ const style2 = {
     fontWeight: 'bold' as 'bold',
     color: '#0070f3',
   },
+  subHeader: {
+    fontSize: 12,
+    marginBottom: 4,
+    textTransform: 'uppercase' as const,
+    fontWeight: 'bold' as const,
+    color: '#0070f3',
+  },
   section: {
     marginBottom: 24,
   },
@@ -27,7 +34,7 @@ const style2 = {
     flexDirection: 'column' as 'column',
     flex: 1,
     marginTop: 20,
-    gap: 6,
+    gap: 1,
   },
   table: {
     borderWidth: 1,
