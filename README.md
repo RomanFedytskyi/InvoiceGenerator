@@ -1,4 +1,5 @@
 # Invoice PDF Generator
+![screencapture-localhost-5173-2025-07-02-12_10_06](https://github.com/user-attachments/assets/7120a8c8-4419-4668-b3ef-24f87c4775f7)
 
 A simple invoice generation tool built with **React**, **Formik**, **Mantine UI**, and **@react-pdf/renderer**. It allows users to configure invoice details and generate live PDF previews with downloadable output.
 
